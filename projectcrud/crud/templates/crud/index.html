@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in members %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.firstname }}</td>
+                <td>{{ i.lastname }}</td>
+                <td>{{ i.email }}</td>
+                <td><a href="update/{{ i.id }}"><button>update</button></a></td>
+                <td><a href="delete/{{ i.id }}"><button>delete</button></a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+
+      <a href="{% url 'add'%}">add Members</a>
+
+</body>
+</html>
